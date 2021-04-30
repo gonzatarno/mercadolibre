@@ -132,6 +132,11 @@ body {
   margin-left: 4px;
 }
 
+#usuario-nombre {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .imagen-usuario {
   margin-right: 5px;
 }

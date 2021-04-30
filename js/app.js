@@ -12,6 +12,36 @@ let carrito = []
     }
 
 
+//MENSAJE - NOMBRE de USUARIO y Direccion
+let usuario;
+const usuarioLocalStorage = localStorage.getItem('usuario')
+
+const direccionUsuarioNombre = document.getElementById('direccion-nombre')
+const usuarioNombre = document.getElementById('usuario-nombre')
+
+    if (usuarioLocalStorage) {
+        usuario = usuarioLocalStorage
+        
+    } else {
+        usuario = prompt('Hola, ingrese su nombre')
+    }
+
+    usuarioNombre.innerHTML = `${usuario}`
+    direccionUsuarioNombre.innerHTML = `Enviar a ${usuario}`
+    localStorage.setItem('usuario', usuario)
+
+
+/*
+    if (usuarioValorStorage){
+        const usuario = prompt('Hola, ingrese su nombre')
+    
+            
+        } else {
+            console.log(usuarioValorStorage)
+            console.log(JSON.parse(usuarioValorStorage))
+            usuario = JSON.parse(usuarioValorStorage);
+        }
+*/
 
     class Producto {
         constructor(nombre, precio, imagen, stock, oferta, tipo) {
@@ -45,6 +75,7 @@ function agregarCarrito(objetoCarrito) {
     carrito.push(objetoCarrito)
     cargarCarrito()
     localStorage.setItem('carrito', JSON.stringify(carrito))
+    
 }
 
 
