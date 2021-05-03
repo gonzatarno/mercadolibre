@@ -458,3 +458,35 @@ padding-right: 10px;
     border-style: none;
   }
 
+
+/* FILTRO SELECCION BOTÓN */
+.list-group-item  {
+  border: none;
+  background-color: transparent;
+  height: auto;
+  overflow: hidden;
+  max-height: 100%;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 0PX;
+  margin: 0px 0px 13px;
+  letter-spacing: 0.5px;
+  line-height: 12.46px;
+  color: #333333;
+}
+
+.list-group-item:hover {
+  color: #000000;
+  cursor: pointer;
+}
+
+.list-group {
+  color: #000000;
+}
+
+.categorias-titulo {
+  font-weight: 500;
+  line-height: 30px;
+  font-size: 16px;
+}
