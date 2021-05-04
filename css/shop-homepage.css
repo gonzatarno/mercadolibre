@@ -5,11 +5,18 @@ body {
   font-family: proxima-nova, sans-serif;
 }
 
+.container {
+  max-width: 1180px;
+}
+
 /* ------- Navegación  -------- */
 
+
 .contenedor-nav-principal {
-  background-color: #fff159;
+  background-color: #ffffff;
   width: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  padding-top: 0px;
 }
 
 .navegacion-meli {
@@ -26,30 +33,30 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 50px;
+  padding-left: 20px;
 }
 
 .direccion-meli img {
   display: flex;
   align-items: center;
-  margin: 0px 5px 35px 0px;
+  margin-bottom: 35px;
+  width: 27px;
 }
 
 .nav-principal{
   height: 92px;
   margin: auto;
-  max-width: 1300px;
+  max-width: 1230px;
   margin-bottom: 8px;
 }
 
 .nav-principal-buscador {
-  margin: auto;
-  max-width: 1200px;
+  max-width: 1230px;
 }
 
 
 @media (max-width: 1230px) {
-  .nav-principal-buscador, .usuario-nav {
+  .nav-principal-buscador, .usuario-nav, te {
     display: none;
   }
 }
@@ -99,10 +106,41 @@ body {
 }
 
 
+.form-control {
+  background-color:#ffffff;
+  border-radius:2px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  display: inline-block;
+  gap: normal;
+  padding: 7px 60px 9px 15px;
+  width: 550px;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.buscador-meli{
+  margin-right: 50px;
+}
+
+.btn-buscador {
+  background-color:#ffffff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
+  border-radius:2px;
+}
+
+.buscador-borde {
+  margin-top: 5px;
+  height: 30px;
+  width: 2px;
+  background-color: #ebebeb;
+}
+
 /* ------- Navegación usuario - Carrito -------- */
 
 .usuario-nav {
-  margin: 0px 15px 20px 0px;
+  margin-bottom: 20px;
   width: 430px;
   display: flex;
   justify-content: center;
@@ -110,7 +148,7 @@ body {
 }
 
 .usuario-nav a{
-  margin-right: 20px;
+  padding-right: 20px;
   font-size: 14px;
   font-weight: 300;
 }
@@ -144,7 +182,7 @@ body {
 .ofertas-cartel {
   height: 190px;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #f0f0f0;
 }
 
 .contenedor-ofertas{
@@ -194,32 +232,7 @@ body {
   border-radius: 2px;
 }
 
-.form-control {
-  background-color:#ffffff;
-  border-radius:2px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  color: rgba(255, 255, 255, 0.1);
-  border-color: #ffffff;
-  display: inline-block;
-  gap: normal;
-  padding: 7px 60px 9px 15px;
-  width: 550px;
-  font-size: 16px;
-  font-weight: 100;
-}
 
-.btn-buscador {
-  background-color:#ffffff;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 5px 0px;
-  border-radius:2px;
-}
-
-.buscador-borde {
-  margin-top: 5px;
-  height: 30px;
-  width: 2px;
-  background-color: #ebebeb;
-}
 
 
 /* ------- Cards  -------- */
@@ -489,4 +502,129 @@ padding-right: 10px;
   font-weight: 500;
   line-height: 30px;
   font-size: 16px;
+}
+
+/* HOME */
+
+.carrusel-meli {
+  margin-top: 50px;
+  height: 340px;
+}
+
+.carousel-item img{
+  object-fit: none;
+  height: 340px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+padding: 0px;
+width: 44.5px;
+}
+
+.carousel-control-prev img, .carousel-control-next img {
+  width: 45px;
+  height: 100px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.carousel-indicators li {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin: 0px 10px;
+}
+
+.active-indicator{
+  width: 10px;
+  height: 10px;
+}
+
+
+/* PLACAS INICIO */
+
+.placas-meli {
+  background-color: white;
+  height: 90px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.placas-meli h3{
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0px;
+}
+
+.placas-meli a{
+  font-size: 14px;
+  font-weight: 400;
+  color: #3483fa;
+}
+
+
+.circle-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 50%;
+  text-align:center;
+  margin-right: 15px;
+}
+
+.placas-meli-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+
+
+@media (max-width: 1219px) {
+  .nav-principal-buscador, .usuario-nav {
+    display: none;
+  }
+}
+
+
+@media (max-width: 1219px) {
+  .texto-direccion{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .contenedor-nav-principal {
+    height: 20%;
+  }
+
+  .texto-direccion-direccion{
+    margin-left: 10px;
+  }
+
+  .buscador-meli {
+    width: 60vw;
+  }
+
+  .usuario-nav, .buscador-borde, .point-nav, .btn-buscador {
+    display: none;
+  }
+}
+
+
+@media (max-width: 990px){
+  .direccion-meli{
+    width: 100vw;
+  }
+  .buscador-meli {
+    max-width: 40vw;
+  }
+
+  .nav-principal{
+    max-width: 60vw;
+  }
 }

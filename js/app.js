@@ -33,49 +33,21 @@ const usuarioNombre = document.getElementById('usuario-nombre')
     localStorage.setItem('usuario', usuario)
 
 
-    //PRODUCTOS
-    class Producto {
-        constructor(nombre, precio, imagen, stock, oferta, tipo) {
-            this.nombre = nombre;
-            this.precio = precio;
-            this.imagen = imagen;
-            this.stock = stock;
-            this.oferta = oferta;
-            this.tipo = tipo
-    
-            const quitarStock = (cantidad) =>{
-                this.stock -= cantidad
-            }
-        }
-    }
-    
-    Productos.push(new Producto('HyperX Cloud Flight', 14799, 'hyperx.jpg', 4, 'OFERTA DEL DÍA', 'consola'))
-    Productos.push(new Producto('Joystick inalámbrico PlayStation', 10000, 'joystick_ps5.jpg', 1, 'OFERTA DEL DÍA', 'consola'))
-    Productos.push(new Producto('Smart TV Tedge Led 50', 25000, 'tedge.jpg', 3, 'OFERTA DEL DÍA', 'electronica'))
-    Productos.push(new Producto('Smart TV Samsung', 31900, 'samsung.jpg', 1, 'OFERTA DEL DÍA', 'electronica'))
-    Productos.push(new Producto('Mouse Logitech G305', 4000, 'mouse_g305.jpg', 3, 'OFERTA DEL DÍA', 'computacion'))
-    Productos.push(new Producto('Tablet Samsung', 16100, 'tab_a.jpg', 5, 'OFERTA DEL DÍA', 'computacion'))
-    Productos.push(new Producto('Macbook Air A1466 Silver', 149999 , 'macbook_air.jpg' , 5, 'OFERTA DEL DÍA', 'computacion'))
-    Productos.push(new Producto('Notebook Tedge 4gb', 119000 , 'notebook_tedge.jpg' , 5, 'OFERTA DEL DÍA', 'computacion'))
-    
-
-
-
 //CARDS PRODUCTOS
 mostrarProductos(Productos)
-function mostrarProductos(array) {
-    for (let i = 0; i < Productos.length; i++) {
+function mostrarProductos() {
+    for (let i = 0; i < stockProductos.length; i++) {
     
         acumulador += `
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100 card-ml">
-                <a href="#"><img class="card-img-top" src="./images/${Productos[i].imagen}" alt=""></a>
+                <a href="#"><img class="card-img-top" src="./images/${stockProductos[i].imagen}" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                    <a href="#">${Productos[i].nombre}</a>
+                    <a href="#">${stockProductos[i].nombre}</a>
                     </h4>
                     <h6 class="badge bg-primary" id="ofertaDelDia">OFERTA DEL DÍA</h6>
-                    <h5 class="precio-card"> $${Productos[i].precio}</h5>
+                    <h5 class="precio-card"> $${stockProductos[i].precio}</h5>
                     <p class="texto-envio">Envío gratis</p>
                 </div>
                 <div class="container-truck">
@@ -84,7 +56,7 @@ function mostrarProductos(array) {
                     </div>
                 </div>
                 <div class="card-footer-meli">
-                    <button onclick='agregarCarrito(${JSON.stringify(Productos[i])})' class="btn btn-primary btn-meli">Agregar al carrito</button>
+                    <button onclick='agregarCarrito(${JSON.stringify(stockProductos[i])})' class="btn btn-primary btn-meli">Agregar al carrito</button>
                 </div>
             </div>
         </div>`;
