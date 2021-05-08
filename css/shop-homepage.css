@@ -346,7 +346,7 @@ footer {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   border-radius: 5px;
-  width: 400px;
+  width: 1000px;
   height: 400px;
 }
 
@@ -483,6 +483,12 @@ padding-right: 10px;
     border-style: none;
   }
 
+  .btn-compra a{
+    color: white;
+    text-align: center;
+    margin: 5px 0px 0px 12px;
+  }
+
   /* Cantidad carrito */
   .cantidad{
     width: 30px;
@@ -507,8 +513,6 @@ padding-right: 10px;
 .list-group-item  {
   border: none;
   background-color: transparent;
-  height: auto;
-  overflow: hidden;
   max-height: 100%;
   text-align: left;
   font-size: 14px;
@@ -518,6 +522,7 @@ padding-right: 10px;
   letter-spacing: 0.5px;
   line-height: 12.46px;
   color: #333333;
+  
 }
 
 .list-group-item:hover {
@@ -525,9 +530,24 @@ padding-right: 10px;
   cursor: pointer;
 }
 
+
+
 .list-group {
   color: #000000;
+  border: none;
+  overflow:hidden;
+  background-color: transparent;
+  outline: none;
 }
+
+.list-group-item:active {
+  color: #000000;
+  border: none;
+  background-color: transparent;
+  
+}
+
+
 
 .categorias-titulo {
   font-weight: 500;
@@ -539,6 +559,29 @@ padding-right: 10px;
 .categorias-container{
   padding: 0px;
 }
+
+
+.page-link {
+  color: #000000;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 300;
+
+}
+
+.page-link:hover {
+  color: #000000;
+  background-color: #dadada;
+  transition: 0.8s;
+}
+
+.page-item-active{
+  color: #000000;
+  background-color: #dadada;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 
 /* HOME */
 
@@ -620,7 +663,122 @@ width: 44.5px;
 
 
 
+/* ---------- HOME ----------*/
 
+.card-ml-home {
+  width: 224px;
+}
+
+.contenedor-items-home h2{
+  font-size: 26px;
+  color: #666666;
+  font-weight: 300;
+}
+
+.contenedor-items-home-a{
+  font-size: 16px;
+  color: #3483fa;
+  font-weight: 400;
+  margin: 6px 10px;
+}
+
+.contenedor-items-home-a:hover{
+  color: #1259c3;
+}
+
+.card-body-home {
+  height: 160px;
+  background-color: white;
+  padding: 24px 16px 20px;
+  border-top: 0.2px solid rgb(219, 219, 219);
+}
+
+.card-body-home h5{
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.descripcion-card-home {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 200;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+
+/* ------- USUARIO INICIO SESION --------*/
+
+.body-inicio-usuario{
+  background-color: #488ff8;
+}
+
+.header-inicio-usuario {
+  width: 100%;
+  background-color: #488ff8;
+}
+
+.header-inicio-usuario-logo{
+  position: absolute;
+  top: 2%;
+  left: 2%;
+}
+
+.fondo-inicio-usuario{
+  width: 100%;
+  height: 182px;
+  background-color: #488ff8;
+}
+
+.card-inicio-usuario{
+  width: 33%;
+  height: 409px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 20%;
+  left: calc(50% - 17%);
+  padding: 32px 64px;
+  border-radius: 5px;
+}
+
+.card-inicio-usuario-contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fondo-inicio-usuario-gris{
+  height: 400px;
+  background-color: #e2e2e2;
+  width: 100%;
+}
+
+.btn-inicio-usuario {
+  width: 290px;
+  padding: 10px 0px;
+  font-weight: 800;
+}
+
+.input-inicio-usuario{
+  width: 290px;
+}
+
+.card-inicio-usuario h1{
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  width: 290px;
+}
+
+#usuario-inicio {
+  margin: 70px 0px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #3483fa;
+}
 
 @media (max-width: 1219px) {
   .nav-principal-buscador, .usuario-nav {

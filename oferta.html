@@ -17,7 +17,6 @@
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
 
-
 </head>
 
 <body>
@@ -33,7 +32,7 @@
         </button>
         <div>
           <form class="d-flex buscador-meli">
-            <input class="form-control" type="search" placeholder="Buscar productos, marcas y más..." aria-label="Search">
+            <input class="form-control" id="myInput" type="text" placeholder="Buscar productos, marcas y más..." aria-label="Search">
             <div class="buscador-borde"></div>
             <button class="btn btn-buscador" type="submit"><img src="/images/search.png" alt="Buscador" width="15px" height="15px"></button>
           </form>
@@ -76,7 +75,7 @@
           </div>
           <div class="usuario-nav">
             <img class="imagen-usuario" src="/images/usuario.png" alt="Imagen de perfil" width="20px" height="20px">
-            <a href="#" id="usuario-nombre"><img width="8px" height="5px" src="/images/arrow.png" alt="flecha"></a>
+            <a href="usuario.html" id="usuario-nombre"><img width="8px" height="5px" src="/images/arrow.png" alt="flecha"></a>
             <a href="#">Mis compras</a>
             <a href="#">Favoritos<img width="8px" height="5px" src="/images/arrow.png" alt="flecha"></a>
             <a href="#"><img src="/images/notification.svg" width="19px" height="32px" alt="notificación"></a>
@@ -96,8 +95,8 @@
                     <p id="total-carrito">total</p>
                     </div>
                 <div class="contenedor-carrito-total-boton">
-                  <button class="btn-primary btn-compra">Ver carrito</button>
                 </div>
+                <div class="btn-primary btn-compra"><a href="carrito.html">Ver carrito</a></div>
               </div>
                 
               
@@ -126,24 +125,37 @@
       </div>
     </div>
   </div>
+  
   <div class="container">
     <div class="row">
       <div class="col-lg-3 categorias-container">
         <h4>Todas</h4>
         <p>6 productos</p>
         <h2 class="categorias-titulo">Categorías</h2>
-        <div class="list-group" id="categorias">
-          <button class="list-group-item">Todas las categorías</button>
-          <button class="list-group-item">Celulares y Teléfonos</button>
-          <button class="list-group-item">Computación</button>
-          <button class="list-group-item">Consolas y Videojuegos</button>
-          <button class="list-group-item">Electrónica, Audio y Video</button>
-        </div>
+        <select class="list-group" id="categorias" multiple size="10">
+          <option value="all" class="list-group-item ">Todas las categorías</option>
+          <option value="celulares" class="list-group-item">Celulares y Teléfonos</option>
+          <option value="computacion" class="list-group-item">Computación</option>
+          <option value="consola" class="list-group-item">Consolas y Videojuegos</option>
+          <option value="electronica" class="list-group-item">Electrónica, Audio y Video</option>
+        </select>
       </div>
       <main class="my-4 col-lg-9 row" id="productos"></main>
       </div>
+      <nav class="my-2 mb-4" aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item page-item-active"><a class="page-link page-item-active" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <a class="page-link" href="#">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
+
 
 
 

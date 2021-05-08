@@ -1,8 +1,9 @@
-let Productos=[]
 const contenedorProductos = document.getElementById('productos')
 const contadorCarrito = document.getElementById('numero-carrito')
 const contenedorCarrito = document.getElementById('carrito')
 const precioTotal = document.getElementById('total-carrito')
+const FiltroCategorias = document.getElementById('categorias')
+
 
 
 let ValorDelCarritoEnElStorage = localStorage.carrito; 
@@ -36,7 +37,7 @@ const usuarioNombre = document.getElementById('usuario-nombre')
     localStorage.setItem('usuario', usuario)
 
 
-//CARDS PRODUCTOS
+//CARDS PRODUCTOS 
     mostrarProductos(stockProductos)
 
     function mostrarProductos(array) {
@@ -73,8 +74,7 @@ const usuarioNombre = document.getElementById('usuario-nombre')
     }
 
 
-
-//Agregar al Carrito
+//Agregar al Carrito + sumar cuando haya objetos duplicados.
 function agregarAlCarrito(itemId) {
 
     let itemEnCarrito = carrito.find( el => el.id == itemId )
@@ -157,7 +157,7 @@ function actualizarCarrito(){
 
         //NUMERO CARRITO
         contadorCarrito.innerText = carrito.length
-        precioTotal.innerText = 'Total: $'+ carrito.reduce( (acc, el) => acc += (el.precio * el.cantidad), 0 )
+        precioTotal.innerText = 'Total: $'+ carrito.reduce( (acc, el) => acc += ((el.precio + el.precio * 0.21) * el.cantidad), 0 )
     }
 
 
@@ -172,6 +172,53 @@ cajaCarrito.addEventListener('click', (event)=>{
 
 
 
-// Cosas a agregar:
-// Cantidad de productos en el carrito
-// filtro por boton de productos
+// filtro por boton(select) de productos
+function filtrarSelect() {
+    let valorFiltroCategorias = FiltroCategorias.value
+    
+    let arrayFiltrado = []
+
+    if (valorFiltroCategorias == 'all') {
+        arrayFiltrado = stockProductos
+    } else {
+        arrayFiltrado = stockProductos.filter( el => el.categoria == FiltroCategorias.value) 
+    }
+
+
+    mostrarProductos(arrayFiltrado)
+
+}
+
+FiltroCategorias.addEventListener('change', ()=>{
+    filtrarSelect()
+})
+
+
+
+/*
+const contenedorProductos2 = document.getElementById('contenedor-productos')
+
+mostrarProductos2(stockProductos)
+
+function mostrarProductos2(array2) {
+
+    contenedorProductos2.innerHTML = ''
+
+    array2.forEach( (producto) => {
+        const div2 = document.createElement('div2')
+        div2.classList.add('producto2')
+        div2.innerHTML = `
+            <div class="card-ml-home">
+            <a href="#"><img class="card-img-top" src="./images/${producto.imagen}" alt=""></a>
+            <div class="card-body-home">
+                <h5>$ ${producto.precio}</h5>
+                <p class="texto-envio">Envío gratis</p>
+                <p class="descripcion-card-home">${producto.desc}</p>
+            </div>
+        </div>
+        `
+        
+        contenedorProductos2.appendChild(div2)
+    } )
+}
+*/

@@ -76,7 +76,7 @@
             </div>
             <div class="usuario-nav">
               <img class="imagen-usuario" src="/images/usuario.png" alt="Imagen de perfil" width="20px" height="20px">
-              <a href="#" id="usuario-nombre"><img width="8px" height="5px" src="/images/arrow.png" alt="flecha"></a>
+              <a href="usuario.html" id="usuario-nombre"><img width="8px" height="5px" src="/images/arrow.png" alt="flecha"></a>
               <a href="#">Mis compras</a>
               <a href="#">Favoritos<img width="8px" height="5px" src="/images/arrow.png" alt="flecha"></a>
               <a href="#"><img src="/images/notification.svg" width="19px" height="32px" alt="notificación"></a>
@@ -96,7 +96,7 @@
                       <p id="total-carrito">total</p>
                       </div>
                   <div class="contenedor-carrito-total-boton">
-                    <button class="btn-primary btn-compra">Ver carrito</button>
+                    <div class="btn-primary btn-compra"><a href="carrito.html">Ver carrito</a></div>
                   </div>
                 </div>
                   
@@ -205,9 +205,15 @@
   </div>
 
     <!-- Historial de productos -->
-  <div class="my-4 container">
-    <h2>Basado en tu última visita</h2>
-  </div>
+    <div class="container contenedor-items-home">
+      <div class="row">
+        <h2>Ofertas</h2>
+        <a class="contenedor-items-home-a" href="oferta.html">Ver todas</a>
+      </div>
+      <main class="col-sm row" id="productos"></main>
+    </div>
+  
+
 
   <!-- Footer -->
   <footer class="py-5 bg-light">
