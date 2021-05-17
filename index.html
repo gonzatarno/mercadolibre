@@ -8,211 +8,36 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Mercado Libre - Gonzalo Tarnofsky</title>
+  <title>Inicio Sesión - Gonzalo Tarnofsky</title>
   <link rel="shortcut icon" href="/images/favicon.png">
-  <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.typekit.net/gff2szn.css">
-
-  <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
-
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
-<body>
-
-  <!-- Navigation -->
-  <header>
-    <div class="contenedor-nav-principal navbar navbar-light navbar-expand-lg fixed-top d-block">
-      <nav class="nav-principal">
-        <div class="container nav-principal-buscador">
-          <a class="navbar-brand" href="index.html"><img src="/images/logo_ml.svg" width="155px" height="50px"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div>
-            <form class="d-flex buscador-meli">
-              <input class="form-control" type="search" placeholder="Buscar productos, marcas y más..." aria-label="Search">
-              <div class="buscador-borde"></div>
-              <button class="btn btn-buscador" type="submit"><img src="/images/search.png" alt="Buscador" width="15px" height="15px"></button>
-            </form>
-          </div>
-          <img class="point-nav" src="/images/point.png" width="340px" height="39px">
-        </div>
-        <div class="navegacion-meli">
-          <div class="direccion-meli">
-            <img class="img-direccion" src="/images/place.svg" alt="Direccion">
-            <div class="texto-direccion">
-              <p class="texto-direccion-nombre" id="direccion-nombre"></p>
-              <span class="texto-direccion-direccion">Av. Direccion 3055</span>
-            </div>
-          </div>
-          
-            <div class="collapse navbar-collapse navegacion navbar-expand-lg" id="navbarResponsive">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Categorías<img width="8px" height="5px" src="/images/arrow.png" alt="felcha"></a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="oferta.html">Ofertas<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Historial</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Supermercado</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Moda</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Vender</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="carrito.html">Ayuda</a>
-                </li>
-              </ul>
-            </div>
-            <div class="usuario-nav">
-              <img class="imagen-usuario" src="/images/usuario.png" alt="Imagen de perfil" width="20px" height="20px">
-              <a href="usuario.html" id="usuario-nombre"><img width="8px" height="5px" src="/images/arrow.png" alt="flecha"></a>
-              <a href="#">Mis compras</a>
-              <a href="#">Favoritos<img width="8px" height="5px" src="/images/arrow.png" alt="flecha"></a>
-              <a href="#"><img src="/images/notification.svg" width="19px" height="32px" alt="notificación"></a>
-              
-              <div class="dropdown">
-                <button class="btn" type="button" data-toggle="dropdown">
-                  <img src="/images/shopcart_use.svg" width="22px" height="40px" alt="Carrito de Compras">
-                  <span class="numero-carrito" id="numero-carrito"></span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-lg-right col-mb-8 scrollable-menu">
-                  <div class="contenedor-carrito-ventana">
-                    <h3>Carrito</h3>
-                    <div class="contenedor-carrito-linea"></div>
-                    <div id="carrito"></div>
-                    <div class="contenedor-carrito-total">
-                      <p>+ IVA</p>
-                      <p id="total-carrito">total</p>
-                      </div>
-                  <div class="contenedor-carrito-total-boton">
-                    <div class="btn-primary btn-compra"><a href="carrito.html">Ver carrito</a></div>
-                  </div>
-                </div>
-                  
-                
-                </div>
-              </div>
-    
-            </div>
-        </div>
-      </nav>
-    </div>  
-  </header> 
-  
-
-
-
-  <!-- Page Content -->
-  <!-- Carrusel -->
-  <div id="carouselExampleInterval" class="carousel slide carrusel-meli" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active active-indicator"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-interval="12000">
-        <img src="/images/carrusel_1.jpg" class="d-block w-100" alt="Carrusel de productos Mercado Libre 1">
-      </div>
-      <div class="carousel-item" data-interval="2000">
-        <img src="/images/Carru_2.jpg" class="d-block w-100" alt="Carrusel de productos Mercado Libre 2">
-      </div>
-      <div class="carousel-item">
-        <img src="/images/Carru_3.jpg" class="d-block w-100" alt="Carrusel de productos Mercado Libre 3">
-      </div>
-      <div class="carousel-item">
-        <img src="/images/carrusel_2.jpg" class="d-block w-100" alt="Carrusel de productos Mercado Libre 4">
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-      <img src="/images/arrow_left.svg" alt="Flecha">
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-      <img src="/images/arrow_right.svg" alt="Flecha">
-      <span class="sr-only">Next</span>
-    </a>
+<body class="body-inicio-usuario">
+<header>
+  <div class="header-inicio-usuario">
+    <a class="header-inicio-usuario-logo" href="home.html"><img src="/images/logo_ml_blanco.svg" width="155px" height="50px"></a>
   </div>
 
-  <!-- Placas -->
-  <div class="my-5 container placas-meli">
-    <div class="row">
-      <div class="col placas-meli-card">
-        <div class="d-flex my-4">
-          <div class="circle-card">
-            <img src="/images/card.svg" alt="" height="25px" width="25px">
-          </div>
-          <div>
-            <div class="placas-meli-texto">
-              <h3>Tarjeta de crédito</h3>
-              <a href="#">Ver promociones bancarias</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col placas-meli-card">
-        <div class="d-flex my-4">
-          <div class="circle-card">
-            <img src="/images/debit.svg" alt="" height="25px" width="25px">
-          </div>
-          <div>
-            <div class="placas-meli-texto">
-              <h3>Tarjeta de débito</h3>
-              <a href="#">Ver más</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col placas-meli-card">
-        <div class="d-flex my-4">
-          <div class="circle-card">
-            <img src="/images/cash.svg" alt="" height="25px" width="25px">
-          </div>
-          <div>
-            <div class="placas-meli-texto">
-              <h3>Efectivo</h3>
-              <a href="#">Ver más</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col placas-meli-card">
-        <div class="d-flex my-4">
-          <div class="circle-card">
-            <img src="/images/plus.svg" alt="" height="25px" width="25px">
-          </div>
-          <div>
-            <div class="placas-meli-card-texto">
-              <h3>Más medios de pago</h3>
-              <a href="#">Ver todos</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <!-- Historial de productos -->
-    <div class="container contenedor-items-home">
-      <div class="row">
-        <h2>Ofertas</h2>
-        <a class="contenedor-items-home-a" href="oferta.html">Ver todas</a>
-      </div>
-      <main class="col-sm row" id="productos"></main>
-    </div>
   
+</header> 
+
+<div class="fondo-login"></div>
+<div class="fondo-login-gris"></div>
+<div class="login-card-contenedor">
+  <div class="login-card">
+    <h1>¡Hola! Ingresá tu nombre</h1>
+    <form action="home.html" id="formNombre">
+      <input id="nombre" type="text" placeholder="Nombre" value=""/>
+      <input id="botonLogin" onclick="cambiarPagina()" class="btn btn-primary btn-inicio-usuario" type="submit">
+    </form>
+  </div>
+</div>
+
+
 
 
   <!-- Footer -->
@@ -220,22 +45,17 @@
     <div class="container">
       <p class="m-2 text-center text-black">Copyright &copy; Replica Mercado Libre - Gonzalo Tarnofsky</p>
     </div>
-    <!-- /.container -->
   </footer>
 
+  <script src="./js/usuario.js"></script>
   <script src="./js/stock.js"></script>
   <script src="./js/app.js"></script>
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
 </script>
 
 </body>

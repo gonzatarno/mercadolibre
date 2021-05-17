@@ -6,6 +6,7 @@ const FiltroCategorias = document.getElementById('categorias')
 
 
 
+
 let ValorDelCarritoEnElStorage = localStorage.carrito; 
 let carrito = []
 
@@ -16,25 +17,6 @@ let carrito = []
         console.log(JSON.parse(ValorDelCarritoEnElStorage))
         carrito = JSON.parse(ValorDelCarritoEnElStorage);
     }
-
-
-//MENSAJE - NOMBRE de USUARIO y Direccion
-let usuario;
-const usuarioLocalStorage = localStorage.getItem('usuario')
-
-const direccionUsuarioNombre = document.getElementById('direccion-nombre')
-const usuarioNombre = document.getElementById('usuario-nombre')
-
-    if (usuarioLocalStorage) {
-        usuario = usuarioLocalStorage
-        
-    } else {
-        usuario = prompt('Hola, ingrese su nombre')
-    }
-
-    usuarioNombre.innerHTML = `${usuario}`
-    direccionUsuarioNombre.innerHTML = `Enviar a ${usuario}`
-    localStorage.setItem('usuario', usuario)
 
 
 //CARDS PRODUCTOS 
@@ -158,6 +140,7 @@ function actualizarCarrito(){
         //NUMERO CARRITO
         contadorCarrito.innerText = carrito.length
         precioTotal.innerText = 'Total: $'+ carrito.reduce( (acc, el) => acc += ((el.precio + el.precio * 0.21) * el.cantidad), 0 )
+        
     }
 
 
@@ -195,6 +178,8 @@ FiltroCategorias.addEventListener('change', ()=>{
 
 
 
+
+
 /*
 const contenedorProductos2 = document.getElementById('contenedor-productos')
 
@@ -222,3 +207,4 @@ function mostrarProductos2(array2) {
     } )
 }
 */
+
