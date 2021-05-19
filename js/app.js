@@ -46,7 +46,7 @@ let carrito = []
                     </div>
                     <div class="container-truck">
                         <div class="circle-truck">
-                            <img class="truck" src="images/truck_2.png" width="20px" height="20px" alt="truck">
+                            <img class="truck" src="./images/truck_2.png" width="20px" height="20px" alt="truck">
                         </div>
                     </div>
                     <div class="card-footer-meli">
