@@ -5,6 +5,10 @@ const precioTotal = document.getElementById('total-carrito')
 const FiltroCategorias = document.getElementById('categorias')
 
 
+//TRAEMOS EL NOMBRE INGRESADO POR EL LOGIN Y LO INCERTAMOS CON DOM EN LA HOME
+document.getElementById("usuario-nombre").innerHTML = localStorage.getItem("usuario");
+document.getElementById("direccion-nombre").innerHTML = localStorage.getItem("usuario");
+
 
 
 let ValorDelCarritoEnElStorage = localStorage.carrito; 
@@ -42,7 +46,7 @@ let carrito = []
                     </div>
                     <div class="container-truck">
                         <div class="circle-truck">
-                            <img class="truck" src="/images/truck_2.png" width="20px" height="20px" alt="truck">
+                            <img class="truck" src="images/truck_2.png" width="20px" height="20px" alt="truck">
                         </div>
                     </div>
                     <div class="card-footer-meli">
@@ -117,7 +121,7 @@ function actualizarCarrito(){
             div.innerHTML = `
             <div class="contenedor-carrito-producto-div">
                 <div class="contenedor-carrito-producto">
-                    <img src="/images/${producto.imagen}" alt="">
+                    <img src="./images/${producto.imagen}" alt="">
                     <div class="contenedor-carrito-prducto-texto">
                         <h4>${producto.nombre}</h4>
                     <p class="texto-envio">Envío gratis</p>         

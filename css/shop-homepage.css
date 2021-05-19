@@ -15,12 +15,6 @@ body {
   max-width: 1180px;
 }
 
-/* ------- MODAL DE BIENVENDIA  -------- */
-
-  
-
-
-
 
 /* ------- Navegación  -------- */
 
@@ -182,10 +176,21 @@ body {
   margin-left: 4px;
 }
 
-#usuario-nombre {
+.usuario-nombre-div a{
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0px;
+}
+
+.usuario-nombre-div{
+  margin: 0px;
+  padding-right: 20px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
+
+
 
 .imagen-usuario {
   margin-right: 5px;
