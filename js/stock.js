@@ -13,3 +13,4 @@ const stockProductos = [
     {id: 11, nombre:'Smart TV Hitachi LED Full HD 40', precio: 34999 , imagen: 'hitachi.jpg', stock: 5 , oferta: 'OFERTA DEL DÍA', categoria: 'electronica' , desc: 'Joystick inalámbrico Sony PlayStation DualSense' },
     {id: 10, nombre:'Auriculares In-ear Haylou Gt1 Pro', precio: 2274 , imagen: 'haylou_gt1.jpg', stock: 5 , oferta: 'OFERTA DEL DÍA', categoria: 'electronica' , desc: 'Joystick inalámbrico Sony PlayStation DualSense' }
 ]
+
