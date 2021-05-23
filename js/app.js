@@ -1,8 +1,23 @@
+let stockProductos = []
+
+const obtenerProductos = async () => {
+    const resp = await fetch('./stock.json')
+    const data = await resp.json()
+
+    stockProductos = data
+    mostrarProductos(stockProductos)
+}
+obtenerProductos()
+
+
 const contenedorProductos = document.getElementById('productos')
 const contadorCarrito = document.getElementById('numero-carrito')
 const contenedorCarrito = document.getElementById('carrito')
 const precioTotal = document.getElementById('total-carrito')
 const FiltroCategorias = document.getElementById('categorias')
+const cantidadDeProductosOferta = document.getElementById('cantidad-productos')
+
+
 
 
 //TRAEMOS EL NOMBRE INGRESADO POR EL LOGIN Y LO INCERTAMOS CON DOM EN LA HOME
@@ -10,7 +25,7 @@ document.getElementById("usuario-nombre").innerHTML = localStorage.getItem("usua
 document.getElementById("direccion-nombre").innerHTML = localStorage.getItem("usuario");
 
 
-
+// ========= CARRITO LOCAL STORAGE =============
 let ValorDelCarritoEnElStorage = localStorage.carrito; 
 let carrito = []
 
@@ -23,8 +38,8 @@ let carrito = []
     }
 
 
-//CARDS PRODUCTOS 
-    mostrarProductos(stockProductos)
+
+// ========= CARDS PRODUCTOS =============
 
     function mostrarProductos(array) {
 
@@ -54,10 +69,14 @@ let carrito = []
                     </div>
                 </div>`
             
-            
             contenedorProductos.appendChild(div)
         } )
     }
+
+
+
+
+
 
 
 //Agregar al Carrito + sumar cuando haya objetos duplicados.
@@ -182,33 +201,32 @@ FiltroCategorias.addEventListener('change', ()=>{
 
 
 
+// ========= API MERCADO PAGO =============
 
+const finalizarCompra = async () => {
 
-/*
-const contenedorProductos2 = document.getElementById('contenedor-productos')
+    const carritoAPagar = carrito.map(el => ({
+            title: el.nombre,
+            description: "",
+            picture_url: "",
+            category_id: el.id,
+            quantity: el.cantidad,
+            currency_id: "ARS",
+            unit_price: el.precio
+    }))
 
-mostrarProductos2(stockProductos)
+    const resp = await fetch('https://api.mercadopago.com/checkout/preferences', 
+    {
+        method: "POST",
+        headers: {
+            Authorization: "Bearer TEST-1966941681392569-052302-ccf496b9e74c185ed6ef40208aae39be-554850478"
+        },
+        body: JSON.stringify({
+            items: carritoAPagar
+        })
+    })
 
-function mostrarProductos2(array2) {
-
-    contenedorProductos2.innerHTML = ''
-
-    array2.forEach( (producto) => {
-        const div2 = document.createElement('div2')
-        div2.classList.add('producto2')
-        div2.innerHTML = `
-            <div class="card-ml-home">
-            <a href="#"><img class="card-img-top" src="./images/${producto.imagen}" alt=""></a>
-            <div class="card-body-home">
-                <h5>$ ${producto.precio}</h5>
-                <p class="texto-envio">Envío gratis</p>
-                <p class="descripcion-card-home">${producto.desc}</p>
-            </div>
-        </div>
-        `
-        
-        contenedorProductos2.appendChild(div2)
-    } )
+    const data = await resp.json()
+    window.open(data.init_point, "_blank")
 }
-*/
 

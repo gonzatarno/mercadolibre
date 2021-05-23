@@ -1,6 +1,5 @@
 let usuario;
 const usuarioLocalStorage = localStorage.getItem('usuario')
-const botonLogin = $('#botonLogin')
 const formulario = $('form')
 const nombre = $('#nombre')
 

@@ -15,6 +15,7 @@
   <link href="css/shop-homepage.css" rel="stylesheet">
 
 
+
 </head>
 
 <body>
@@ -24,22 +25,22 @@
     <div class="contenedor-nav-principal navbar navbar-light navbar-expand-lg fixed-top d-block">
       <nav class="nav-principal">
         <div class="container nav-principal-buscador">
-          <a class="navbar-brand" href="home.html"><img src="./images/logo_ml.svg" width="155px" height="50px"></a>
+          <a class="navbar-brand" href="index.html"><img src="/images/logo_ml.svg" width="155px" height="50px"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div>
-            <form class="d-flex buscador-meli">
-              <input class="form-control" type="search" placeholder="Buscar productos, marcas y más..." aria-label="Search">
+            <form id="buscador" class="d-flex buscador-meli">
+              <input class="form-control" type="text" placeholder="Buscar productos, marcas y más..."/>
               <div class="buscador-borde"></div>
-              <button class="btn btn-buscador" type="submit"><img src="./images/search.png" alt="Buscador" width="15px" height="15px"></button>
+              <button class="btn btn-buscador"><img src="./images/search.png" alt="Buscador" width="15px" height="15px"></button>
             </form>
           </div>
-          <img class="point-nav" src="./images/point.png" width="340px" height="39px">
+          <img class="point-nav" src="/images/point.png" width="340px" height="39px">
         </div>
         <div class="navegacion-meli">
           <div class="direccion-meli">
-            <img class="img-direccion" src="./images/place.svg" alt="Direccion">
+            <img class="img-direccion" src="/images/place.svg" alt="Direccion">
             <div class="texto-direccion">
               <p class="texto-direccion-nombre" id="direccion-nombre"></p>
               <span class="texto-direccion-direccion">Av. Direccion 3055</span>
@@ -49,7 +50,7 @@
             <div class="collapse navbar-collapse navegacion navbar-expand-lg" id="navbarResponsive">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Categorías<img width="8px" height="5px" src="./images/arrow.png" alt="felcha"></a>
+                  <a class="nav-link" href="#">Categorías<img width="8px" height="5px" src="/images/arrow.png" alt="felcha"></a>
                 </li>
                 <li class="nav-item active">
                   <a class="nav-link" href="oferta.html">Ofertas<span class="sr-only">(current)</span></a>
@@ -72,15 +73,15 @@
               </ul>
             </div>
             <div class="usuario-nav">
-              <img class="imagen-usuario" src="./images/usuario.png" alt="Imagen de perfil" width="20px" height="20px">
-              <div class="usuario-nombre-div"><a id="usuario-nombre" href="index.html"></a><img width="8px" height="5px" src="./images/arrow.png" alt="flecha"></div>
+              <img class="imagen-usuario" src="/images/usuario.png" alt="Imagen de perfil" width="20px" height="20px">
+              <a href="index.html" id="usuario-nombre"><img width="8px" height="5px" src="/images/arrow.png" alt="flecha"></a>
               <a href="#">Mis compras</a>
-              <a href="#">Favoritos<img width="8px" height="5px" src="./images/arrow.png" alt="flecha"></a>
-              <a href="#"><img src="./images/notification.svg" width="19px" height="32px" alt="notificación"></a>
-              <span class="nombre-prueba"></span>
+              <a href="#">Favoritos<img width="8px" height="5px" src="/images/arrow.png" alt="flecha"></a>
+              <a href="#"><img src="/images/notification.svg" width="19px" height="32px" alt="notificación"></a>
+              
               <div class="dropdown">
                 <button class="btn" type="button" data-toggle="dropdown">
-                  <img src="./images/shopcart_use.svg" width="22px" height="40px" alt="Carrito de Compras">
+                  <img src="/images/shopcart_use.svg" width="22px" height="40px" alt="Carrito de Compras">
                   <span class="numero-carrito" id="numero-carrito"></span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg-right col-mb-8 scrollable-menu">
@@ -92,13 +93,8 @@
                       <p>+ IVA</p>
                       <p id="total-carrito">total</p>
                       </div>
-                  <div class="contenedor-carrito-total-boton">
-                    <div class="btn-primary btn-compra"><a href="carrito.html">Ver carrito</a></div>
+                      <button onclick=finalizarCompra() class="btn-primary btn-compra">PAGAR</button>
                   </div>
-                </div>
-                  
-                
-                </div>
               </div>
     
             </div>
@@ -207,7 +203,7 @@
         <h2>Ofertas</h2>
         <a class="contenedor-items-home-a" href="oferta.html">Ver todas</a>
       </div>
-      <main class="col-sm row" id="productos"></main>
+      <main class="col-sm mb-4 row" id="productos"></main>
     </div>
   
 
@@ -219,15 +215,16 @@
   </footer>
 
   <script src="./js/usuario.js"></script>
-  <script src="./js/stock.js"></script>
   <script src="./js/app.js"></script>
-  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+</script>
 
 </body>
 

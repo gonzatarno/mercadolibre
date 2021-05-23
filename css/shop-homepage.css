@@ -316,15 +316,16 @@ a:hover {
 .col-lg-9 {
   margin: 0px;
   padding: 0px;
+  max-width: 1200px;
 }
 
 .producto {
-  width: 280px;
-  margin: 0px 10px 15px 0px;
+  width: 275px;
+  margin: 0px 15px 15px 0px;
 }
 
 #productos {
-  max-width: 1300px;
+  max-width: 1200px;
   width: 100vw
 }
 
@@ -345,6 +346,7 @@ a:hover {
   flex-direction: column;
 }
 
+
 .btn-meli {
   width: 150px;
   margin: 5px;
@@ -353,6 +355,11 @@ a:hover {
 footer {
   width: 100%;
 }
+
+.card-img {
+  height: 175px;
+}
+
 
 /* ------- Seccion Carrito  -------- */
 
@@ -498,6 +505,7 @@ padding-right: 10px;
     border-radius: 5px;
     box-shadow: none;
     border-style: none;
+    width: 100%;
   }
 
   .btn-compra a{
@@ -681,10 +689,6 @@ width: 44.5px;
 
 
 /* ---------- HOME ----------*/
-
-.card-ml-home {
-  width: 224px;
-}
 
 .contenedor-items-home h2{
   font-size: 26px;
