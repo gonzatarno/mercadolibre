@@ -1,8 +1,8 @@
 let stockProductos = []
 
 const obtenerProductos = async () => {
-    const resp = await fetch('./stock.json')
-    const data = await resp.json()
+    const res = await fetch('./stock.json')
+    const data = await res.json()
 
     stockProductos = data
     mostrarProductos(stockProductos)
@@ -14,8 +14,10 @@ const contenedorProductos = document.getElementById('productos')
 const contadorCarrito = document.getElementById('numero-carrito')
 const contenedorCarrito = document.getElementById('carrito')
 const precioTotal = document.getElementById('total-carrito')
-const FiltroCategorias = document.getElementById('categorias')
+const filtroCategorias = document.getElementById('categorias')
 const cantidadDeProductosOferta = document.getElementById('cantidad-productos')
+
+
 
 
 
@@ -26,15 +28,15 @@ document.getElementById("direccion-nombre").innerHTML = localStorage.getItem("us
 
 
 // ========= CARRITO LOCAL STORAGE =============
-let ValorDelCarritoEnElStorage = localStorage.carrito; 
+let ValorDelCarritoEnElStorage = localStorage.getItem("carrito"); 
 let carrito = []
 
-    if(ValorDelCarritoEnElStorage == null){
-        carrito = [];
-    }else{
+    if(ValorDelCarritoEnElStorage != null){
         console.log(ValorDelCarritoEnElStorage)
         console.log(JSON.parse(ValorDelCarritoEnElStorage))
         carrito = JSON.parse(ValorDelCarritoEnElStorage);
+
+        actualizarCarrito();
     }
 
 
@@ -55,7 +57,7 @@ let carrito = []
                         <h4 class="card-title">
                         <a href="#">${producto.nombre}</a>
                         </h4>
-                        <h6 class="badge bg-primary" id="ofertaDelDia">OFERTA DEL DÍA</h6>
+                        <h6 class="badge bg-primary">OFERTA DEL DÍA</h6>
                         <h5 class="precio-card"> $${producto.precio}</h5>
                         <p class="texto-envio">Envío gratis</p>
                     </div>
@@ -76,10 +78,7 @@ let carrito = []
 
 
 
-
-
-
-//Agregar al Carrito + sumar cuando haya objetos duplicados.
+// Agregar al Carrito + sumar cuando haya objetos duplicados.
 function agregarAlCarrito(itemId) {
 
     let itemEnCarrito = carrito.find( el => el.id == itemId )
@@ -100,7 +99,7 @@ function agregarAlCarrito(itemId) {
     actualizarCarrito()
 }
 
-//Quitar del carrito
+// Quitar del carrito
 function quitarDelCarrito(id) {
 
     let productoAEliminar = carrito.find( el => el.id == id )
@@ -112,14 +111,16 @@ function quitarDelCarrito(id) {
         carrito.splice(indice, 1)
     }
 
+    localStorage.setItem('carrito', JSON.stringify(carrito))
     console.log(carrito)
     actualizarCarrito()
 }
 
 
-//Vaciar el Carrito
+
+// Vaciar el Carrito
 function vaciarCarrito(){
-    localStorage.clear()
+    localStorage.removeItem("carrito")
     carrito = []
     contadorCarrito.innerText = carrito.length
     precioTotal.innerText = 'Total: $'+ carrito.reduce( (acc, el) => acc += el.precio, 0 ) 
@@ -129,7 +130,7 @@ function vaciarCarrito(){
 
 
 
-//Actualizar el carrito
+// Actualizar el carrito
 function actualizarCarrito(){
     contenedorCarrito.innerHTML=''
     
@@ -160,15 +161,14 @@ function actualizarCarrito(){
             contenedorCarrito.appendChild(div)        
         })
 
-        //NUMERO CARRITO
+        // NUMERO CARRITO
         contadorCarrito.innerText = carrito.length
         precioTotal.innerText = 'Total: $'+ carrito.reduce( (acc, el) => acc += ((el.precio + el.precio * 0.21) * el.cantidad), 0 )
-        
     }
 
 
 
-//Al clicker borrar o vaciar carrito, sigue en la misma pantalla
+// Al clicker borrar o vaciar carrito, sigue en la misma pantalla
 const cajaCarrito = document.getElementsByClassName('dropdown-menu')[0]
 
 cajaCarrito.addEventListener('click', (event)=>{
@@ -178,16 +178,16 @@ cajaCarrito.addEventListener('click', (event)=>{
 
 
 
-// filtro por boton(select) de productos
+// Filtro por boton(select) de productos
 function filtrarSelect() {
-    let valorFiltroCategorias = FiltroCategorias.value
+    let valorFiltroCategorias = filtroCategorias.value
     
     let arrayFiltrado = []
 
     if (valorFiltroCategorias == 'all') {
         arrayFiltrado = stockProductos
     } else {
-        arrayFiltrado = stockProductos.filter( el => el.categoria == FiltroCategorias.value) 
+        arrayFiltrado = stockProductos.filter( el => el.categoria == filtroCategorias.value) 
     }
 
 
@@ -195,13 +195,13 @@ function filtrarSelect() {
 
 }
 
-FiltroCategorias.addEventListener('change', ()=>{
+filtroCategorias.addEventListener('change', ()=>{
     filtrarSelect()
 })
 
 
 
-// ========= API MERCADO PAGO =============
+// API MERCADO PAGO
 
 const finalizarCompra = async () => {
 
