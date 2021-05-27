@@ -52,7 +52,7 @@ let carrito = []
             div.classList.add('producto')
             div.innerHTML = `
                 <div class="card h-100 card-ml">
-                    <a href="#"><img class="card-img-top" src="./images/${producto.imagen}" alt=""></a>
+                    <a href="#"><img class="card-img-top" src="${producto.imagen}" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                         <a href="#">${producto.nombre}</a>
@@ -141,7 +141,7 @@ function actualizarCarrito(){
             div.innerHTML = `
             <div class="contenedor-carrito-producto-div">
                 <div class="contenedor-carrito-producto">
-                    <img src="./images/${producto.imagen}" alt="">
+                    <img src="${producto.imagen}" alt="">
                     <div class="contenedor-carrito-prducto-texto">
                         <h4>${producto.nombre}</h4>
                     <p class="texto-envio">Envío gratis</p>         
@@ -163,7 +163,7 @@ function actualizarCarrito(){
 
         // NUMERO CARRITO
         contadorCarrito.innerText = carrito.length
-        precioTotal.innerText = 'Total: $'+ carrito.reduce( (acc, el) => acc += ((el.precio + el.precio * 0.21) * el.cantidad), 0 )
+        precioTotal.innerText = 'Total: $'+ carrito.reduce( (acc, el) => acc += (el.precio * el.cantidad), 0 )
     }
 
 
@@ -203,30 +203,34 @@ filtroCategorias.addEventListener('change', ()=>{
 
 // API MERCADO PAGO
 
-const finalizarCompra = async () => {
-
-    const carritoAPagar = carrito.map(el => ({
-            title: el.nombre,
+async function finalizarCompra() {
+    const productsToMP = carrito.map((element) => {
+        let nuevoElemento = {
+            title: element.nombre,
             description: "",
             picture_url: "",
-            category_id: el.id,
-            quantity: el.cantidad,
+            category_id: element.id,
+            quantity: Number(element.cantidad),
             currency_id: "ARS",
-            unit_price: el.precio
-    }))
-
-    const resp = await fetch('https://api.mercadopago.com/checkout/preferences', 
-    {
-        method: "POST",
-        headers: {
-            Authorization: "Bearer TEST-1966941681392569-052302-ccf496b9e74c185ed6ef40208aae39be-554850478"
-        },
-        body: JSON.stringify({
-            items: carritoAPagar
-        })
-    })
-
-    const data = await resp.json()
-    window.open(data.init_point, "_blank")
-}
+            unit_price: Number(element.precio),
+        };
+        return nuevoElemento;
+        });
+        console.log(productsToMP);
+        const response = await fetch(
+        "https://api.mercadopago.com/checkout/preferences",
+        {
+            method: "POST",
+            headers: {
+            Authorization:
+                "Bearer TEST-1966941681392569-052302-ccf496b9e74c185ed6ef40208aae39be-554850478",
+            },
+            body: JSON.stringify({
+            items: productsToMP,
+            }),
+        }
+        );
+        const data = await response.json();
+        window.open(data.init_point, "_blank");
+    } 
 
