@@ -42,7 +42,7 @@ cajaCarrito.addEventListener('click', (event)=>{
 
 
 
-// ========= CARRITO LOCAL STORAGE =============
+// CARRITO LOCAL STORAGE 
 let ValorDelCarritoEnElStorage = localStorage.getItem("carrito"); 
 let carrito = []
 
@@ -56,7 +56,7 @@ let carrito = []
 
 
 
-// ========= CARDS PRODUCTOS =============
+// CARDS PRODUCTOS
 
     function mostrarProductos(array) {
 
@@ -91,6 +91,9 @@ let carrito = []
     }
 
 
+// Carrito Indicador
+
+
 
 
 // Agregar al Carrito + sumar cuando haya objetos duplicados.
@@ -100,7 +103,6 @@ function agregarAlCarrito(itemId) {
 
     if (itemEnCarrito) {
         itemEnCarrito.cantidad += 1
-        contadorCarrito.innerText = carrito.length += 1
     } else {
         let {id, nombre, precio, imagen} = stockProductos.find( el => el.id == itemId )
         carrito.push({id: id, nombre: nombre, precio: precio, cantidad: 1, imagen: imagen})
@@ -110,7 +112,7 @@ function agregarAlCarrito(itemId) {
 
     console.log(carrito)
 
-    contadorCarrito.innerText = carrito.length
+
     actualizarCarrito()
 }
 
@@ -177,7 +179,7 @@ function actualizarCarrito(){
         })
 
         // NUMERO CARRITO
-        contadorCarrito.innerText = carrito.length
+        contadorCarrito.innerText = carrito.reduce( (acc, el) => acc + (el.cantidad), 0 );
         precioTotal.innerText = 'Total: $'+ carrito.reduce( (acc, el) => acc += (el.precio * el.cantidad), 0 )
     }
 

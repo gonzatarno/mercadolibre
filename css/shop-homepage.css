@@ -143,6 +143,11 @@ body {
   border: 1px solid rgb(235, 235, 235);
 }
 
+
+#total-carrito{
+  margin-top: 10px;
+}
+
 /* ------- Navegación usuario - Carrito -------- */
 
 .usuario-nav {
