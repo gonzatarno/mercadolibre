@@ -5,7 +5,7 @@ const obtenerProductos = async () => {
     const data = await res.json()
 
     stockProductos = data
-    mostrarProductos(stockProductos)
+    mostrarProductos(stockProductos)    
 }
 obtenerProductos()
 
@@ -16,15 +16,30 @@ const contenedorCarrito = document.getElementById('carrito')
 const precioTotal = document.getElementById('total-carrito')
 const filtroCategorias = document.getElementById('categorias')
 const cantidadDeProductosOferta = document.getElementById('cantidad-productos')
+const buscador = document.querySelector('#buscador')
+const buscadorBoton = document.querySelector('#boton-buscador')
 
 
 
 
 
-
-//TRAEMOS EL NOMBRE INGRESADO POR EL LOGIN Y LO INCERTAMOS CON DOM EN LA HOME
+// TRAEMOS EL NOMBRE INGRESADO POR EL LOGIN Y LO INCERTAMOS CON DOM EN LA HOME
 document.getElementById("usuario-nombre").innerHTML = localStorage.getItem("usuario");
 document.getElementById("direccion-nombre").innerHTML = localStorage.getItem("usuario");
+
+
+// Al clicker borrar o vaciar carrito, sigue en la misma pantalla
+const cajaCarrito = document.getElementsByClassName('dropdown-menu')[0]
+
+cajaCarrito.addEventListener('click', (event)=>{
+    event.stopPropagation()
+})
+
+
+
+
+
+
 
 
 // ========= CARRITO LOCAL STORAGE =============
@@ -168,15 +183,6 @@ function actualizarCarrito(){
 
 
 
-// Al clicker borrar o vaciar carrito, sigue en la misma pantalla
-const cajaCarrito = document.getElementsByClassName('dropdown-menu')[0]
-
-cajaCarrito.addEventListener('click', (event)=>{
-    event.stopPropagation()
-})
-
-
-
 
 // Filtro por boton(select) de productos
 function filtrarSelect() {
@@ -198,7 +204,6 @@ function filtrarSelect() {
 filtroCategorias.addEventListener('change', ()=>{
     filtrarSelect()
 })
-
 
 
 // API MERCADO PAGO
@@ -232,5 +237,4 @@ async function finalizarCompra() {
         );
         const data = await response.json();
         window.open(data.init_point, "_blank");
-    } 
-
+    }
