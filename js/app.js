@@ -1,5 +1,7 @@
 let stockProductos = []
 
+
+
 const obtenerProductos = async () => {
     const res = await fetch('./stock.json')
     const data = await res.json()
@@ -15,10 +17,7 @@ const contadorCarrito = document.getElementById('numero-carrito')
 const contenedorCarrito = document.getElementById('carrito')
 const precioTotal = document.getElementById('total-carrito')
 const filtroCategorias = document.getElementById('categorias')
-const cantidadDeProductosOferta = document.getElementById('cantidad-productos')
-const buscador = document.querySelector('#buscador')
-const buscadorBoton = document.querySelector('#boton-buscador')
-
+const filtroPrecios = document.getElementById('precios')
 
 
 
@@ -34,12 +33,6 @@ const cajaCarrito = document.getElementsByClassName('dropdown-menu')[0]
 cajaCarrito.addEventListener('click', (event)=>{
     event.stopPropagation()
 })
-
-
-
-
-
-
 
 
 // CARRITO LOCAL STORAGE 
@@ -91,7 +84,7 @@ let carrito = []
     }
 
 
-// Carrito Indicador
+
 
 
 
@@ -189,7 +182,8 @@ function actualizarCarrito(){
 // Filtro por boton(select) de productos
 function filtrarSelect() {
     let valorFiltroCategorias = filtroCategorias.value
-    
+    let valorFiltroPrecios = filtroPrecios.value
+
     let arrayFiltrado = []
 
     if (valorFiltroCategorias == 'all') {
@@ -198,12 +192,21 @@ function filtrarSelect() {
         arrayFiltrado = stockProductos.filter( el => el.categoria == filtroCategorias.value) 
     }
 
+    if (valorFiltroPrecios == 1) {
+        arrayFiltrado = arrayFiltrado.filter( el => el.precio <= 10000)
+    } else if (valorFiltroPrecios == 2) {
+        arrayFiltrado = arrayFiltrado.filter( el => el.precio >= 10000)
+    }
 
     mostrarProductos(arrayFiltrado)
 
 }
 
 filtroCategorias.addEventListener('change', ()=>{
+    filtrarSelect()
+})
+
+selectPrecios.addEventListener('change', ()=>{
     filtrarSelect()
 })
 
@@ -240,3 +243,5 @@ async function finalizarCompra() {
         const data = await response.json();
         window.open(data.init_point, "_blank");
     }
+
+

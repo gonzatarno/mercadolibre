@@ -114,7 +114,7 @@
       <div class="col-lg-3 categorias-container">
         <h4>Todas</h4>
         <p id="cantidad-productos"></p>
-        <h2 class="categorias-titulo">Categorías</h2>
+        <h2 class="filtros-titulo">Categorías</h2>
         <select class="list-group" id="categorias" multiple size="14">
           <option value="all" class="list-group-item ">Todas las categorías</option>
           <option value="accesoriosautos" class="list-group-item">Accesorios para Vehículos</option>
@@ -124,6 +124,12 @@
           <option value="consola" class="list-group-item">Consolas y Videojuegos</option>
           <option value="electronica" class="list-group-item">Electrónica, Audio y Video</option>
           <option value="hogar" class="list-group-item">Hogar, Muebles y Jardín</option>
+        </select>
+        <h2 class="filtros-titulo">Precio</h2>
+        <select class="list-group" id="precios" multiple size="14">
+          <option value="0" class="list-group-item">Todos</option>
+          <option value="1" class="list-group-item">hasta $10.000</option>
+          <option value="2" class="list-group-item">Más de $10.000</option>
         </select>
       </div>
       <main class="my-4 col-lg-9 row" id="productos"></main>
